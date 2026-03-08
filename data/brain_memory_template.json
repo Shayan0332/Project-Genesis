@@ -1,0 +1,7 @@
+{
+    "name": "User",
+    "age": 0,
+    "height": 0,
+    "mood": "neutral",
+    "tasks_completed": 0
+}
