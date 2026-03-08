@@ -1,4 +1,5 @@
 import json
+from system.logger import log_event
 
 # Load brain memory
 def load_memory():
@@ -15,6 +16,9 @@ def update_mood(data):
     mood = input("How are you feeling today? (happy/sad/neutral): ")
     data["mood"] = mood
     save_memory(data)
+
+    log_event(f"Mood updated to {mood}")
+
     print("Mood updated successfully.\n")
 
 # Progress engine
@@ -24,6 +28,9 @@ def record_task(data):
     if answer.lower() == "yes":
         data["tasks_completed"] += 1
         save_memory(data)
+
+        log_event("Task completed")
+
         print("Great job! Task recorded.\n")
     else:
         print("No problem. Keep pushing forward.\n")
@@ -56,6 +63,7 @@ def analyze_state(data):
 
     print("\nDecision analysis complete.\n")
 
+    log_event("Decision analysis executed")
 
 # Main controller
 def main():
