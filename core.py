@@ -2,12 +2,12 @@ import json
 
 # Load brain memory
 def load_memory():
-    with open("brain_memory.json", "r") as file:
+    with open("data/brain_memory.json", "r") as file:
         return json.load(file)
 
 # Save brain memory
 def save_memory(data):
-    with open("brain_memory.json", "w") as file:
+    with open("data/brain_memory.json", "w") as file:
         json.dump(data, file, indent=4)
 
 # Emotion engine
