@@ -1,48 +1,26 @@
-import json
-import os
+from system.logger import log_event
 
-BRAIN_FILE = "brain_memory.json"
+def analyze_state(data):
 
-# Check if brain exists
-if not os.path.exists(BRAIN_FILE):
-    print("Brain memory not found. Run setup first.")
-    exit()
+    print("\nAnalyzing state for", data["name"])
+    print("Mood:", data["mood"])
+    print("Tasks Completed:", data["tasks_completed"])
 
-# Load brain
-with open(BRAIN_FILE, "r") as file:
-    brain = json.load(file)
+    if data["mood"] == "sad" and data["tasks_completed"] > 0:
+        print("\nEven though you're feeling sad, you're still making progress.")
+        print("That shows real discipline. Keep going.")
 
-name = brain["name"]
-mood = brain["mood"]
-tasks = brain["tasks_completed"]
+    elif data["mood"] == "happy" and data["tasks_completed"] > 0:
+        print("\nGreat mood and steady progress.")
+        print("Stay consistent and build momentum.")
 
-print(f"\nAnalyzing state for {name}...")
-print(f"Mood: {mood}")
-print(f"Tasks Completed: {tasks}\n")
+    elif data["tasks_completed"] == 0:
+        print("\nNo progress yet.")
+        print("Start with small steps today.")
 
-# Decision Logic (Fusion of Mood + Productivity)
+    else:
+        print("\nStay consistent. You're doing okay.")
 
-if mood == "sad" and tasks == 0:
-    print("You're feeling low and haven't started yet.")
-    print("Start small. One task can change your momentum.")
+    print("\nDecision analysis complete.\n")
 
-elif mood == "sad" and tasks > 0:
-    print("Even though you're feeling sad, you're still making progress.")
-    print("That shows real discipline. Keep going.")
-
-elif mood == "happy" and tasks > 5:
-    print("You're happy and highly productive!")
-    print("You're operating at peak performance. Excellent work.")
-
-elif mood == "happy" and tasks <= 5:
-    print("Great mood and steady progress.")
-    print("Stay consistent and build momentum.")
-
-elif mood == "neutral":
-    print("Stable mindset detected.")
-    print("Consistency will determine your growth.")
-
-else:
-    print("State unclear, but keep pushing forward.")
-
-print("\nDecision analysis complete.")
+    log_event("Decision analysis executed")
