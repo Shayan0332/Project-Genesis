@@ -14,6 +14,8 @@ def main():
 
     while True:
 
+        data["interactions"] += 1
+        save_memory(data)
         print("\nWelcome", data["name"])
         print("1. Update Mood")
         print("2. Record Completed Task")

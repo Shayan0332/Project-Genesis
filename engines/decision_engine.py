@@ -5,22 +5,34 @@ def analyze_state(data):
     print("\nAnalyzing state for", data["name"])
     print("Mood:", data["mood"])
     print("Tasks Completed:", data["tasks_completed"])
+    # ?? Score system
+    score = 0
 
-    if data["mood"] == "sad" and data["tasks_completed"] > 0:
-        print("\nEven though you're feeling sad, you're still making progress.")
-        print("That shows real discipline. Keep going.")
+    # Mood scoring
+    if data["mood"] == "happy":
+        score += 2
+    elif data["mood"] == "neutral":
+        score += 1
+    elif data["mood"] == "sad":
+        score -= 1
+    # Task scoring
+    score += data["tasks_completed"]
 
-    elif data["mood"] == "happy" and data["tasks_completed"] > 0:
-        print("\nGreat mood and steady progress.")
-        print("Stay consistent and build momentum.")
+    print("System Score:", score)
+    print("Interactions:", data["interactions"])
 
-    elif data["tasks_completed"] == 0:
-        print("\nNo progress yet.")
-        print("Start with small steps today.")
-
+    # ?? Intelligent response
+    if score >= 3:
+        print("\nExcellent state. You're performing very well.")
+    elif score >= 1:
+        print("\nGood progress. Stay consistent.")
+    elif score == 0:
+        print("\nBalanced state. Try to improve slightly.")
     else:
-        print("\nStay consistent. You're doing okay.")
-
+        print("\nLow state detected. Focus on small wins.")
+    if data["interactions"] > 5:
+        print("\nYou're consistently using the system. Great discipline.")
     print("\nDecision analysis complete.\n")
 
-    log_event("Decision analysis executed")
+    log_event(f"Decision score calculated: {score}")
+

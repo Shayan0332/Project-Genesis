@@ -3,7 +3,7 @@
 import os
 import json # JSON allows structured data storage
 
-memory_file = "brain_memory.json"
+memory_file = "data/brain_memory.json"
 
 # Function to save memory
 def save_memory(data):
@@ -57,7 +57,8 @@ else:
         "age": age,
         "height": height,
         "mood": "neutral",
-        "tasks_completed": 0
+        "tasks_completed": 0,
+        "interactions": 0
     }
 
     save_memory(brain)
