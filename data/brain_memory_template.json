@@ -4,4 +4,6 @@
     "height": 0,
     "mood": "neutral",
     "tasks_completed": 0
+    "interactions": 0,
+    "goal": ""
 }

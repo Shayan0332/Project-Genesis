@@ -58,7 +58,8 @@ else:
         "height": height,
         "mood": "neutral",
         "tasks_completed": 0,
-        "interactions": 0
+        "interactions": 0,
+        "goal": ""
     }
 
     save_memory(brain)

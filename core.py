@@ -2,7 +2,7 @@ from brain.memory_manager import load_memory, save_memory
 from engines.emotion_engine import update_mood
 from engines.progress_engine import record_task
 from engines.decision_engine import analyze_state
-
+from engines.goal_engine import set_goal
 
 def main():
 
@@ -20,7 +20,8 @@ def main():
         print("1. Update Mood")
         print("2. Record Completed Task")
         print("3. Analyze Current State")
-        print("4. Exit")
+        print("4. Set Goal")
+        print("5. Exit")
 
         choice = input("Select option: ")
 
@@ -34,6 +35,9 @@ def main():
             analyze_state(data)
 
         elif choice == "4":
+            set_goal(data, save_memory)
+
+        elif choice == "5":
             print("Exiting system.")
             break
 

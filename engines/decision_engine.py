@@ -5,6 +5,15 @@ def analyze_state(data):
     print("\nAnalyzing state for", data["name"])
     print("Mood:", data["mood"])
     print("Tasks Completed:", data["tasks_completed"])
+
+
+
+
+
+    print("Current Goal:", data["goal"])
+
+    if data["goal"] != "":
+        print("Working Toward:", data["goal"])
     # ?? Score system
     score = 0
 
