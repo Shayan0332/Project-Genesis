@@ -43,6 +43,8 @@ def analyze_state(data):
         print("\nYou're consistently using the system. Great discipline.")
     if data ["goal"] != "" and data["tasks_completed"] > 0:
         print("\nYou are making progress toward your goal.")
+    if data["tasks_completed"] == 0:
+        print("\nRecomendation: Complete one small task today.")
 
     print("\nDecision analysis complete.\n")
 
