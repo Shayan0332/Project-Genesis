@@ -5,11 +5,6 @@ def analyze_state(data):
     print("\nAnalyzing state for", data["name"])
     print("Mood:", data["mood"])
     print("Tasks Completed:", data["tasks_completed"])
-
-
-
-
-
     print("Current Goal:", data["goal"])
 
     if data["goal"] != "":
@@ -41,8 +36,13 @@ def analyze_state(data):
         print("\nLow state detected. Focus on small wins.")
     if data["interactions"] > 5:
         print("\nYou're consistently using the system. Great discipline.")
+
     if data ["goal"] != "" and data["tasks_completed"] > 0:
         print("\nYou are making progress toward your goal.")
+
+    if data ["goal"] != "" and data["tasks_completed"] >= 5:
+        print("\nOutstanding progress toward your goal!")
+
     if data["tasks_completed"] == 0:
         print("\nRecomendation: Complete one small task today.")
 
