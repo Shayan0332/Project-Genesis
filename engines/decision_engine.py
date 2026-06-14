@@ -46,6 +46,9 @@ def analyze_state(data):
     if data["tasks_completed"] == 0:
         print("\nRecomendation: Complete one small task today.")
 
+    if data["mood"] == "sad":
+       print("\nRecommendation: Focus on one small win today.")
+
     print("\nDecision analysis complete.\n")
 
     log_event(f"Decision score calculated: {score}")
