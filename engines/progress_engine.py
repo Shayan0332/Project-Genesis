@@ -6,7 +6,11 @@ def record_task(data, save_memory):
 
     answer = input("Did you complete a task today? (yes/no): ")
 
-    if answer.lower() == "yes":	
+    if answer.lower() == "yes":
+
+        task = input("What task did you complete? ")
+        data["task_history"].append(task)
+
         data["tasks_completed"] += 1
         save_memory(data)
 

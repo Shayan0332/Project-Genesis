@@ -60,7 +60,8 @@ else:
         "tasks_completed": 0,
         "interactions": 0,
         "goal": "",
-        "mood_history": []
+        "mood_history": [],
+        "task_history": []
     }
 
     save_memory(brain)
