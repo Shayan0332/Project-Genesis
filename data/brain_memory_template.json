@@ -3,7 +3,8 @@
     "age": 0,
     "height": 0,
     "mood": "neutral",
-    "tasks_completed": 0
+    "tasks_completed": 0,
     "interactions": 0,
-    "goal": ""
+    "goal": "",
+    "mood_history": []
 }

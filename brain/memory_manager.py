@@ -59,7 +59,8 @@ else:
         "mood": "neutral",
         "tasks_completed": 0,
         "interactions": 0,
-        "goal": ""
+        "goal": "",
+        "mood_history": []
     }
 
     save_memory(brain)
