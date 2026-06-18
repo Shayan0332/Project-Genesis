@@ -61,7 +61,8 @@ else:
         "interactions": 0,
         "goal": "",
         "mood_history": [],
-        "task_history": []
+        "task_history": [],
+        "completed_goals": []
     }
 
     save_memory(brain)

@@ -31,6 +31,10 @@ def analyze_state(data):
     if len(data["task_history"]) > 0:
         print("Latest Task:", data["task_history"][-1])
 
+    print("Completed Goals:", len(data["completed_goals"]))
+    if len(data["completed_goals"]) > 0:
+        print("Latest Achievement:", data["completed_goals"][-1])
+
     # Mood trend analysis
     if len(data["mood_history"]) >= 2:
         if data["mood_history"][-1] == "sad" and data["mood_history"][-2] == "sad":
