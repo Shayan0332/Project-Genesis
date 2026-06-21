@@ -11,6 +11,10 @@ def record_task(data, save_memory):
         task = input("What task did you complete? ")
         data["task_history"].append(task)
 
+        data["activity_log"].append(
+            f"Task completed: {task}"
+        )
+
         data["tasks_completed"] += 1
         save_memory(data)
 

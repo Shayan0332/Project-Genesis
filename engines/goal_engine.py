@@ -16,6 +16,9 @@ def complete_goal(data, save_memory):
         return
 
     data["completed_goals"].append(data["goal"])
+    data["activity_log"].append(
+        f"Goal completed: {data['goal']}"
+    )
 
     print("Goal completed:", data["goal"])
 
