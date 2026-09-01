@@ -1,5 +1,6 @@
 from system.logger import log_event
 
+
 def analyze_state(data):
 
     print("\nAnalyzing state for", data["name"])
@@ -32,9 +33,11 @@ def analyze_state(data):
         print("Latest Task:", data["task_history"][-1])
 
     print("Completed Goals:", len(data["completed_goals"]))
+
     if len(data["completed_goals"]) > 0:
         print("Latest Achievement:", data["completed_goals"][-1])
 
+    # Recent activity
     if len(data["activity_log"]) > 0:
         print("Recent Activity:")
 
@@ -43,7 +46,10 @@ def analyze_state(data):
 
     # Mood trend analysis
     if len(data["mood_history"]) >= 2:
-        if data["mood_history"][-1] == "sad" and data["mood_history"][-2] == "sad":
+        if (
+            data["mood_history"][-1] == "sad"
+            and data["mood_history"][-2] == "sad"
+        ):
             print("Mood Trend: You have been feeling sad recently.")
 
     # Intelligent response
@@ -56,15 +62,18 @@ def analyze_state(data):
     else:
         print("\nLow state detected. Focus on small wins.")
 
+    # Interaction analysis
     if data["interactions"] > 5:
         print("\nYou're consistently using the system. Great discipline.")
 
+    # Goal progress analysis
     if data["goal"] != "" and data["tasks_completed"] > 0:
         print("\nYou are making progress toward your goal.")
 
     if data["goal"] != "" and data["tasks_completed"] >= 5:
         print("\nOutstanding progress toward your goal!")
 
+    # Recommendations
     if data["tasks_completed"] == 0:
         print("\nRecommendation: Complete one small task today.")
 

@@ -1,3 +1,6 @@
+from system.logger import log_event
+
+
 def set_goal(data, save_memory):
 
     goal = input("What is your current goal? ")
@@ -16,6 +19,7 @@ def complete_goal(data, save_memory):
         return
 
     data["completed_goals"].append(data["goal"])
+
     data["activity_log"].append(
         f"Goal completed: {data['goal']}"
     )
