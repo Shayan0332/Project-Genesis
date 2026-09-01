@@ -29,13 +29,56 @@ def analyze_state(data):
     print("Interactions:", data["interactions"])
     print("Mood Records:", len(data["mood_history"]))
 
+        # Mood statistics
+    happy_count = data["mood_history"].count("happy")
+    sad_count = data["mood_history"].count("sad")
+    neutral_count = data["mood_history"].count("neutral")
+
+    print("Mood Statistics:")
+    print("Happy:", happy_count)
+    print("Sad:", sad_count)
+    print("Neutral:", neutral_count)
+
+        # Most frequent mood
+    mood_counts = {
+        "happy": happy_count,
+        "sad": sad_count,
+        "neutral": neutral_count
+    }
+
+    most_frequent_mood = max(mood_counts, key=mood_counts.get)
+
+    print("Most Frequent Mood:", most_frequent_mood)
+
     if len(data["task_history"]) > 0:
         print("Latest Task:", data["task_history"][-1])
 
-    print("Completed Goals:", len(data["completed_goals"]))
+        # Productivity statistics
+    print("Task Records:", len(data["task_history"]))
+    print("Goals Completed:", len(data["completed_goals"]))
+
+        # Productivity insight
+    if data["tasks_completed"] >= 5:
+        print("Productivity Insight: You are maintaining strong task completion.")
+
+    if len(data["completed_goals"]) >= 2:
+        print("Achievement Insight: You have completed multiple goals.")
 
     if len(data["completed_goals"]) > 0:
         print("Latest Achievement:", data["completed_goals"][-1])
+
+        # Overall personal insight
+    if data["mood"] == "sad" and data["tasks_completed"] >= 5:
+        print("Overall Insight: Despite your mood, you are continuing to make strong progress.")
+
+    elif data["mood"] == "happy" and data["tasks_completed"] >= 5:
+        print("Overall Insight: Your positive mood is supporting strong productivity.")
+
+    elif data["tasks_completed"] >= 5:
+        print("Overall Insight: You are maintaining consistent productivity.")
+
+    else:
+        print("Overall Insight: Focus on steady progress and small improvements.")
 
     # Recent activity
     if len(data["activity_log"]) > 0:
