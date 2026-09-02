@@ -1,3 +1,4 @@
+from engines.summary_engine import generate_summary
 from brain.memory_manager import load_memory, save_memory
 from engines.emotion_engine import update_mood
 from engines.progress_engine import record_task
@@ -22,7 +23,8 @@ def main():
         print("3. Analyze Current State")
         print("4. Set Goal")
         print("5. Complete Goal")
-        print("6. Exit")
+        print("6. Daily Summary")
+        print("7. Exit")
 
         choice = input("Select option: ")
 
@@ -42,6 +44,9 @@ def main():
             complete_goal(data, save_memory)
 
         elif choice == "6":
+            generate_summary(data)
+
+        elif choice == "7":
             print("Exiting system.")
             break
 
